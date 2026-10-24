@@ -1,0 +1,60 @@
+{
+  "name": "ram-sawit-desktop",
+  "version": "2.2.0",
+  "description": "RAM Sawit desktop dengan server localhost, berbagi LAN, dan penyimpanan transaksi bersama",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis portable",
+    "dist:win:installer": "electron-builder --win nsis",
+    "dist:win:portable": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "45.0.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "id.ramsawit.desktop",
+    "productName": "RAM Sawit",
+    "artifactName": "RAM-Sawit-${version}-${arch}.${ext}",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "assets/ram-sawit.ico",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/ram-sawit.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "RAM Sawit",
+      "artifactName": "RAM-Sawit-${version}-Setup.${ext}"
+    },
+    "portable": {
+      "artifactName": "RAM-Sawit-${version}-portable.${ext}"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+STATUS: Installer EXE belum dikompilasi di lingkungan pembuatan ini.
+Alasan: koneksi dari lingkungan ini ke registry.npmjs.org gagal dengan EAI_AGAIN sehingga dependensi Electron tidak bisa diunduh.
+Solusi yang disiapkan: workflow GitHub Actions pada .github/workflows/build-windows.yml untuk mengompilasi EXE di runner Windows yang memiliki akses jaringan.
